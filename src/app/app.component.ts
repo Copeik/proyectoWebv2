@@ -17,10 +17,21 @@ export class AppComponent {
     this.initializeApp();
   }
 
+  sidebar = false;
+  ComprobarLoged(){
+    
+    var user=sessionStorage.getItem("Usuario");
+    
+    if(user!=null || user != undefined){
+      this.sidebar=true;  
+    }
+      
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    this.ComprobarLoged();
   }
 }
