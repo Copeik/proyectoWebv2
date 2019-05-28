@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Articulo:{{articulo.nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-avatar style="border-radius: 100%;">
+        <img [src]="_sanitizer.bypassSecurityTrustResourceUrl(articulo.imagen)">
+      </ion-avatar>
+      <ion-item>
+          <ion-label position="floating">Nombre articulo</ion-label>
+          <ion-input [(ngModel)]="articulo.nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Descripción</ion-label>
+          <ion-textarea [(ngModel)]="articulo.descripcion"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label>Tipo</ion-label>
+            <ion-select [(ngModel)]="articulo.codigo_tipo.codigo_t" placeholder="{{articulo.codigo_tipo.nombre}}">
+              <ion-select-option *ngFor="let tipo of listatipo"  value="{{tipo.codigo_t}}">{{tipo.nombre}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        <ion-item>
+          <ion-label position="floating">Precio</ion-label>
+          <ion-input [(ngModel)]="articulo.precio_articulo"></ion-input>
+        </ion-item>
+<form>
+</form>
+<ion-button (click)="guardarArticulo()"  color="success">Guardar</ion-button>
+<ion-button color="danger" [routerLink]="['/articulos']">Cancelar</ion-button>
+</ion-content>

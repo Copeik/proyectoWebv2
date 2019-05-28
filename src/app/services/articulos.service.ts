@@ -14,6 +14,9 @@ export class ArticulosService {
    token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2aWN0b3IifQ.4n0H6mj8uIwbY674h4sBT0VgESnpvJkJ_Iqb98To0wFc-_wayJflDBSF3SdxksMCHIVT_XM64Jckou54w6snPw";
 
 
+  getArticulo(codarticulo){
+    return this.http.get<any>(`http://localhost:8090/v1/articulo1?codarticulo=`+codarticulo,{headers: this.header.append("Authorization","Bearer "+ this.token) });
+  }
   getListaArticulos(page){
     return this.http.get<any>(`http://localhost:8090/v1/articuloP?page=${page}&size=9`,{headers: this.header.append("Authorization","Bearer "+ this.token) });
   }

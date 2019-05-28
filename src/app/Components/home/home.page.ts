@@ -12,6 +12,8 @@ export class HomePage {
   userGenerate(){
     sessionStorage.setItem("Usuario","x");
     this.router.navigate(['/inicio']);
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+    }, 0);
   }
 }
