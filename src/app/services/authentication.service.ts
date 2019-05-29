@@ -10,7 +10,7 @@ export class AuthenticationService {
   header= new HttpHeaders();
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-
+  token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2aWN0b3IifQ.4n0H6mj8uIwbY674h4sBT0VgESnpvJkJ_Iqb98To0wFc-_wayJflDBSF3SdxksMCHIVT_XM64Jckou54w6snPw";
   constructor(private http: HttpClient,private router:Router) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -49,10 +49,13 @@ export class AuthenticationService {
     this.router.navigate(['login']);
   }
   }
-  getAdmin(){
-    
+  getUsuariosAdmin(){
+    return this.http.get<any>(`http://localhost:8090/v1/usuarios`,{headers: this.header.append("Authorization","Bearer "+ this.token) });
   }
 
+  getUsuario(nick){
+    return this.http.get<any>(`http://localhost:8090/v1/usuario?usuario=`+nick,{headers: this.header.append("Authorization","Bearer "+ this.token) });
+  }
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');

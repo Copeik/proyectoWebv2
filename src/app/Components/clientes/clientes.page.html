@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+     <!-- some content here -->
+  </div>
+   <div class="fixed">
+       <ion-list>
+         <ion-item *ngFor="let cliente of clientes">
+          <ion-label  [routerLink]="['/cliente/'+cliente.usuario]">[{{cliente.usuario}}] {{cliente.nombre}} </ion-label>
+        </ion-item>
+       </ion-list>
+   </div>
+</ion-content>

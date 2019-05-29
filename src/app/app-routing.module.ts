@@ -1,3 +1,4 @@
+import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -8,7 +9,10 @@ const routes: Routes = [
   { path: 'inicio', loadChildren: './Components/inicio/inicio.module#InicioPageModule' },
   { path: 'articulos', loadChildren: './Components/articulos/articulos.module#ArticulosPageModule' },
   { path: 'usuarios', loadChildren: './Components/usuarios/usuarios.module#UsuariosPageModule' },
-  { path: 'articulo/:id', loadChildren: './Components/articulo/articulo.module#ArticuloPageModule' }
+  { path: 'articulo/:id', loadChildren: './Components/articulo/articulo.module#ArticuloPageModule' },
+  { path: 'clientes', loadChildren: './Components/clientes/clientes.module#ClientesPageModule' },
+  { path: 'cliente/:id', loadChildren: './Components/cliente/cliente.module#ClientePageModule' }
+
 
 
 

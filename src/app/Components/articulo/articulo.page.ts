@@ -20,6 +20,28 @@ export class ArticuloPage implements OnInit {
     this.obtenerItem();
     this.obtenerTipo();
   }
+
+  handleFileSelect(evt){
+    var files = evt.target.files;
+    var file = files[0];
+  if (files && file) {
+      var reader = new FileReader();
+
+      reader.onload =this._handleReaderLoaded.bind(this);
+
+      reader.readAsBinaryString(file);
+  }
+}
+
+base64textString:string
+
+_handleReaderLoaded(readerEvt) {
+   var binaryString = readerEvt.target.result;
+          this.base64textString= btoa(binaryString);
+          console.log(btoa(binaryString));
+          this.articulo.imagen="data:image/jpeg;base64,"+this.base64textString;
+  }
+
   obtenerItem(){
     this.articulosService.getArticulo(this.router.snapshot.params.id).subscribe(res =>{
       this.articulo=res
