@@ -8,7 +8,7 @@ export class Cliente {
         id_rol: number
 
     }
-    activo: number
+    activo: boolean
     correo: string
     telefono: number
     dir = {

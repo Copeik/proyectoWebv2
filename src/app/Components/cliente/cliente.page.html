@@ -15,7 +15,7 @@
     <ion-label>Id: {{cliente.id}} </ion-label>
   </ion-item>
   <ion-item>
-    <ion-label>Codigo Rol: {{cliente.rol.nombre_rol}} </ion-label>
+    <ion-label>Codigo Rol: {{rol}} <ion-button style="float: right" (click)="cambiarRol()" ><ion-icon name="repeat"></ion-icon></ion-button></ion-label>
   </ion-item>
   <ion-item>
     <ion-label>Telefono: {{cliente.telefono}} </ion-label>
@@ -24,8 +24,7 @@
     <ion-label>Direccion: {{cliente.dir.direc}} </ion-label>
   </ion-item>
   <ion-item>
-    <ion-label>Activo: {{cliente.activo}} </ion-label>
+    <ion-label>Activo: {{cliente.activo}} <ion-button style="float: right" (click)="Activarcliente()" ><ion-icon name="repeat"></ion-icon></ion-button></ion-label>
   </ion-item>
 </ion-content>
-<ion-button>Activar/Desactivar</ion-button>
-<ion-button>Cambiar rol</ion-button>
+<ion-button (click)="guardarCliente()" >Guardar</ion-button>
