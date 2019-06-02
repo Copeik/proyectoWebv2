@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'articulo/:id', loadChildren: './Components/articulo/articulo.module#ArticuloPageModule' },
   { path: 'clientes', loadChildren: './Components/clientes/clientes.module#ClientesPageModule' },
   { path: 'cliente/:id', loadChildren: './Components/cliente/cliente.module#ClientePageModule' },
-  { path: 'pedidos', loadChildren: './Components/pedidos/pedidos.module#PedidosPageModule' }
+  { path: 'pedidos', loadChildren: './Components/pedidos/pedidos.module#PedidosPageModule' },
+  { path: 'pedido/:id', loadChildren: './Components/pedido/pedido.module#PedidoPageModule' }
+
 
 
 

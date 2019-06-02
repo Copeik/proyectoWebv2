@@ -5,5 +5,14 @@
 </ion-header>
 
 <ion-content>
-
+  <div>
+     <!-- some content here -->
+  </div>
+   <div class="fixed">
+       <ion-list>
+         <ion-item *ngFor="let pedido of pedidos">
+          <ion-label [style.color]="pedido.estado.id==7 ? 'orange' : 'black' " [routerLink]="['/pedido/'+pedido.codpedido]">[{{pedido.codpedido}}] {{pedido.descripcion}}</ion-label>
+        </ion-item>
+       </ion-list>
+   </div>
 </ion-content>
