@@ -9,5 +9,10 @@ export class Articulos {
         codigo_t: number;
         nombre: string;
     }
+    tipo:any
     fecha_caducidad: string;
+    constructor(){
+        this.codigo_tipo= {codigo_t: 0,
+            nombre: ""}
+    }
 }

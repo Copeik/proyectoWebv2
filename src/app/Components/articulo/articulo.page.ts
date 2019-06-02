@@ -56,6 +56,7 @@ _handleReaderLoaded(readerEvt) {
   }
 
   guardarArticulo(){
+    this.articulo.tipo = this.articulo.codigo_tipo
     this.articulosService.postArticulo(this.articulo).subscribe(res =>{
       console.log(res)
       if (res) {
