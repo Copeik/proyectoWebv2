@@ -5,34 +5,35 @@
 </ion-header>
 
 <ion-content>
-  <div class="card">
-    <div class="card-body">
-        <h1>Modificacion pedido</h1>
+  <ion-card>
+      <ion-card-header><h1>Modificacion pedido</h1>
         <p>Codigo pedido: {{Pedido.codpedido}}</p>
         <p>Fecha: {{Pedido.fecha}}</p>
-        <p>Cliente: {{Pedido.cliente.nombre}} {{Pedido.cliente.apellido}}</p>
-        <div class="card">
-            <div class="card-body">
+        <p>Cliente: {{Pedido.cliente.nombre}} {{Pedido.cliente.apellido}}</p></ion-card-header>
+    <div class="card-body">
+        
+        <ion-card-content>
+            
               <h2>Articulos</h2>
 
               <div class="form-group">
-                <label for="comment">Descripción:</label>
-                <textarea class="form-control" [(ngModel)]="Pedido.descripcion" rows="5" id="descripcion"></textarea>
+                <ion-label for="comment">Descripción:</ion-label>
+                <ion-textarea class="form-control" placeholder="Introduce una descripcion...." [(ngModel)]="Pedido.descripcion" rows="5" id="descripcion"></ion-textarea>
               </div>
 
               <div class="row mt-2" *ngFor="let item of listaEspecificaciones; let i = index" (change)="UpdateTotal()">
               
                 <label for="" class="mr-2 ml-2 mt-1"> Item {{i + 1}}</label>
-              <input disabled [(ngModel)]="listaEspecificaciones[i].id.art.nombre" style="max-width: 15%" class="form-control" type="text">
+              <ion-input disabled [(ngModel)]="listaEspecificaciones[i].id.art.nombre" style="max-width: 15%" class="form-control" type="text"></ion-input>
               <label for="" class="mr-2 ml-2 mt-1"> Cantidad :</label>
-              <input [(ngModel)]="listaEspecificaciones[i].cantidad" min="0" max="50" aria-valuemin="0" style="max-width: 15%" class="form-control ml-2" type="number">
+              <ion-input [(ngModel)]="listaEspecificaciones[i].cantidad" min="0" max="50" aria-valuemin="0" style="max-width: 15%" class="form-control ml-2" type="number"></ion-input>
               <label for="" class="mr-2 ml-2 mt-1"> Total :</label>
-              <input disabled [(ngModel)]="listaEspecificaciones[i].precio" style="max-width: 15%" class="form-control ml-2" type="text">
+              <ion-input disabled [(ngModel)]="listaEspecificaciones[i].precio" style="max-width: 15%" class="form-control ml-2" type="text"></ion-input>
               </div>
 
             </div>
-          </div>
-          <div class="input-group mt-3 col-6" >
+          </ion-card-content>
+          <div>
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">Estado</label>
             </div>
@@ -47,11 +48,11 @@
               
             </select>
           </div>
+          <div><p style="float: right">Total : {{Pedido.total}}</p></div>
           
-          <p style="float: right">Total : {{Pedido.total}}</p>
-          <button class="mt-5 btn btn-secondary ml-2" (click)="confirm()" style="float: right" >Guardar</button>
-          <button class="mt-5 btn btn-secondary" [routerLink]="['/pedidos']" routerLinkActive="router-link-active"  style="float: right">Cancelar</button>
+          <ion-button (click)="confirm()" style="float: right;">Guardar</ion-button>
+          <ion-button [routerLink]="['/pedidos']" style="float: right;">Cancelar</ion-button>
     </div>
-  </div>
+  </ion-card>
 
 </ion-content>
