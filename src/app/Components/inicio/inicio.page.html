@@ -5,5 +5,20 @@
 </ion-header>
 
 <ion-content>
-
+    <ion-text color="warning">
+        <ion-button href="google.es"><h2 style="text-align: center
+          ">Hay 20 pedidos pendientes</h2></ion-button>
+      </ion-text>
+      <ion-text color="info">
+        <p style="text-align: left
+          ">Estas logeado con {{Usuario.usuario}}</p>
+          <p style="text-align: left
+          ">Telefono: {{Usuario.telefono}}</p>
+          <p style="text-align: left
+          ">Activo:  {{Usuario.activo}}</p>
+          
+      </ion-text>
+      <ion-button (click)="logOut()" style=" position: fixed;
+      bottom: 0px;
+      right: 0px; ">Log out <ion-icon md="md-log-out"></ion-icon></ion-button>
 </ion-content>

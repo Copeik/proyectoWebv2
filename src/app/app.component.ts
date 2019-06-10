@@ -24,6 +24,8 @@ export class AppComponent {
     
     if(user!=null || user != undefined){
       this.sidebar=true;  
+    }else{
+      this.sidebar=false;  
     }
       
   }

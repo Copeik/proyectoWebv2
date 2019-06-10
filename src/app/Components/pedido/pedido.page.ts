@@ -1,6 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PedidosService } from 'src/app/services/pedidos.service';
+import { Pedidos } from 'src/app/model/Pedidos';
 
 @Component({
   selector: 'app-pedido',
@@ -9,7 +10,7 @@ import { PedidosService } from 'src/app/services/pedidos.service';
 })
 export class PedidoPage implements OnInit {
 
-  Pedido;
+  Pedido:Pedidos;
   listaEspecificaciones;
 
   constructor(private pedidosService:PedidosService,private _route: ActivatedRoute, private router:Router) { }

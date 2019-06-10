@@ -9,6 +9,7 @@ export class Pedidos {
     total: number
     estado: {
         id: number
+        estado:string
     }
 
 }

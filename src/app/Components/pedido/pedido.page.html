@@ -10,7 +10,7 @@
         <p>Codigo pedido: {{Pedido.codpedido}}</p>
         <p>Fecha: {{Pedido.fecha}}</p>
         <p>Cliente: {{Pedido.cliente.nombre}} {{Pedido.cliente.apellido}}</p></ion-card-header>
-    <div class="card-body">
+    
         
         <ion-card-content>
             
@@ -31,28 +31,30 @@
               <ion-input disabled [(ngModel)]="listaEspecificaciones[i].precio" style="max-width: 15%" class="form-control ml-2" type="text"></ion-input>
               </div>
 
-            </div>
+            
           </ion-card-content>
           <div>
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Estado</label>
             </div>
-            <select [(ngModel)]="Pedido.estado.id" class="custom-select" id="inputGroupSelect01">
-              <option value="1">Nuevo pedido</option>
-              <option value="2">En proceso</option>
-              <option value="3">Listo para envio</option>
-              <option value="4">En envio</option>
-              <option value="5">Finalizado</option>
-              <option value="6">Cancelado</option>
-              <option value="7">En modificacion</option>
-              
-            </select>
+            <ion-item>
+              <ion-label>Estado</ion-label>
+              <ion-select [(ngModel)]="Pedido.estado.id" class="custom-select" placeholder="{{Pedido.estado.estado}}" id="inputGroupSelect01">
+                <ion-select-option value="1">Nuevo pedido</ion-select-option>
+                <ion-select-option value="2">En proceso</ion-select-option>
+                <ion-select-option value="3">Listo para envio</ion-select-option>
+                <ion-select-option value="4">En envio</ion-select-option>
+                <ion-select-option value="5">Finalizado</ion-select-option>
+                <ion-select-option value="6">Cancelado</ion-select-option>
+                <ion-select-option value="7">En modificacion</ion-select-option>
+                
+              </ion-select>
+            </ion-item>
+            
           </div>
-          <div><p style="float: right">Total : {{Pedido.total}}</p></div>
+          <label><p style="float: right">Total : {{Pedido.total}}</p></label>
           
-          <ion-button (click)="confirm()" style="float: right;">Guardar</ion-button>
+          <ion-button (click)="comprar()" style="float: right;">Guardar</ion-button>
           <ion-button [routerLink]="['/pedidos']" style="float: right;">Cancelar</ion-button>
-    </div>
   </ion-card>
 
 </ion-content>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Cliente } from 'src/app/model/Cliente';
 
 @Component({
   selector: 'app-inicio',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
-
-  constructor() { }
+  Usuario:Cliente
+  constructor(private route:Router) { }
 
   ngOnInit() {
+    this.Usuario=JSON.parse(sessionStorage.getItem("Usuario"));
+    console.log(this.Usuario);
   }
 
+  logOut(){
+    sessionStorage.clear();
+    this.route.navigate(["home"])
+    setTimeout(() => {
+      location.reload()
+    }, 0);
+    
+  }
 }
