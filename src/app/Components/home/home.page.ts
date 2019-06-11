@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class HomePage {
   errorTF=false
-  constructor(private authService: AuthenticationService,private router:Router) {
+  constructor(private authService: AuthenticationService,private router:Router,private toastController:ToastController) {
 
   }
   user = 'victor';
@@ -44,11 +45,29 @@ export class HomePage {
       }
       else{console.log(error);
         this.errorTF=true
+        this.presentToastWithOptions()
        }
       
         
     });
     
+  }
+  async presentToastWithOptions() {
+    const toast = await this.toastController.create({
+      header: 'Fallo en la autentificacion',
+      message: 'Compruebe que su usuario sea administrador y este activo',
+      position: 'top',
+      buttons: [
+        {
+          side: 'start',
+          icon: 'star',
+          text: 'Entendido',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    toast.present();
   }
 
   ngOnInit() { }

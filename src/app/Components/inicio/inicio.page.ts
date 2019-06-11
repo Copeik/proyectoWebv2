@@ -12,13 +12,14 @@ import { Cliente } from 'src/app/model/Cliente';
 export class InicioPage implements OnInit {
   Usuario:Cliente
   pedidos:Array<Pedidos>
-  cont:number
+  cont:number=0
 
   constructor(private route:Router,private pedidosService:PedidosService) { }
 
   ngOnInit() {
     this.Usuario=JSON.parse(sessionStorage.getItem("Usuario"));
     console.log(this.Usuario);
+    this.pedidosServicio();
   }
 
   logOut(){
@@ -31,8 +32,18 @@ export class InicioPage implements OnInit {
   }
 
   pedidosServicio(){
+    this.cont=0
     this.pedidosService.getallByAdmin().subscribe(res=>{
       this.pedidos=res
+      if (this.pedidos != null && this.pedidos != undefined ) {
+        for (let i = 0; i < this.pedidos.length; i++) {
+          console.log(this.pedidos[i].estado)
+          if (this.pedidos[i].estado.id == 7) {
+            this.cont++;
+          }
+          
+        }
+      }
     })
   }
   

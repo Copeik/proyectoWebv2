@@ -10,7 +10,7 @@
    <div class="fixed">
        <ion-list>
          <ion-item *ngFor="let cliente of clientes">
-          <ion-label  [routerLink]="['/cliente/'+cliente.usuario]">[{{cliente.rol.nombre_rol}}] NICK: {{cliente.usuario}} NOMBRE: {{cliente.nombre}} </ion-label>
+          <ion-label  [routerLink]="['/cliente/'+cliente.usuario]"> NICK: {{cliente.usuario}} NOMBRE: {{cliente.nombre}} <strong style="float: right">[{{cliente.rol.nombre_rol}}]</strong></ion-label>
         </ion-item>
        </ion-list>
    </div>

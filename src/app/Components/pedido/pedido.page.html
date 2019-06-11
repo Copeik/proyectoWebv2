@@ -51,10 +51,9 @@
             </ion-item>
             
           </div>
-          <label><p style="float: right">Total : {{Pedido.total}}</p></label>
-          
-          <ion-button (click)="comprar()" style="float: right;">Guardar</ion-button>
-          <ion-button [routerLink]="['/pedidos']" style="float: right;">Cancelar</ion-button>
+          <label><strong style="float: right; font:400;">Total : {{Pedido.total}}€</strong></label>
+          <ion-button (click)="comprar()" style="float: left;">Guardar</ion-button>
+          <ion-button [routerLink]="['/pedidos']" style="float: left;">Cancelar</ion-button>
   </ion-card>
 
 </ion-content>
