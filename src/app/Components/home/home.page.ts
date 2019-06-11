@@ -8,6 +8,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  errorTF=false
   constructor(private authService: AuthenticationService,private router:Router) {
 
   }
@@ -42,7 +43,7 @@ export class HomePage {
         
       }
       else{console.log(error);
-        this.msgs.push({severity:'error', summary:'Error', detail:'Error en la autentificacion'});
+        this.errorTF=true
        }
       
         

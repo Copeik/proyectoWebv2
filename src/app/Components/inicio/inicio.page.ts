@@ -1,3 +1,5 @@
+import { PedidosService } from './../../services/pedidos.service';
+import { Pedidos } from 'src/app/model/Pedidos';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/model/Cliente';
@@ -9,7 +11,10 @@ import { Cliente } from 'src/app/model/Cliente';
 })
 export class InicioPage implements OnInit {
   Usuario:Cliente
-  constructor(private route:Router) { }
+  pedidos:Array<Pedidos>
+  cont:number
+
+  constructor(private route:Router,private pedidosService:PedidosService) { }
 
   ngOnInit() {
     this.Usuario=JSON.parse(sessionStorage.getItem("Usuario"));
@@ -24,4 +29,11 @@ export class InicioPage implements OnInit {
     }, 0);
     
   }
+
+  pedidosServicio(){
+    this.pedidosService.getallByAdmin().subscribe(res=>{
+      this.pedidos=res
+    })
+  }
+  
 }

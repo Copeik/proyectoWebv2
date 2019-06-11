@@ -1,8 +1,6 @@
 
-<ion-content>
-
-        <ion-title padding center text-center>Somiplantas</ion-title>
-
+        <ion-title text-center>Somiplantas</ion-title>
+        <ion-img style="width: 60%; margin: auto" src="/assets/flor-inicio.png"></ion-img>
   <ion-list>
     <ion-item>
       <ion-input [(ngModel)]="user" placeholder="Usuario"></ion-input>
@@ -11,7 +9,8 @@
       <ion-input [(ngModel)]="password" placeholder="Contarseña" type="password"></ion-input>
     </ion-item>
   </ion-list>
-
+  <ion-text *ngIf="errorTF" >
+    <p>Esta herramienta es solo para administradores</p>
+  </ion-text>
   <ion-button color="success" expand="block" (click)="Login()" >Login</ion-button>
-  <ion-button color="warning" expand="block">¿Aun no tienes cuenta? Registro</ion-button>
-</ion-content>
+  <small style="color:gray">Si no tiene acceso contacte con un administrador para que le de los permisos correspondientes</small>
