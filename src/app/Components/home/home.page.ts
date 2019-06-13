@@ -34,11 +34,21 @@ export class HomePage {
         console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
         console.log('decodedJwtData: ' + decodedJwtData.sub)
         //aqui le mandamos el token y el usuario para que lo guarde
-        this.authService.saveuser(decodedJwtData.sub);
-        this.router.navigate(['inicio']);
-        setTimeout(() => {
-          location.reload();
-        }, 0);
+        this.authService.getUsuario(decodedJwtData.sub).subscribe(res =>{
+          console.log(res)
+          if(res.rol.id_rol==3){
+            
+            this.authService.saveuser(decodedJwtData.sub);
+            this.router.navigate(['inicio']);
+
+            setTimeout(() => {
+              location.reload();
+            }, 0);
+          }else{
+            
+        this.presentToastWithOptions()
+          }
+        });
         
 
         
